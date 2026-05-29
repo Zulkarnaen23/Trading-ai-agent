@@ -1,0 +1,61 @@
+market_research_task:
+  description: |
+    Conduct comprehensive market analysis for BTC/USDT.
+    Provide:
+    1. Current market conditions and trend analysis
+    2. Technical analysis with support/resistance levels
+    3. Market sentiment and economic indicators
+    4. Identified trading signals and opportunities
+    5. Risk assessment and market outlook
+  expected_output: |
+    Detailed market analysis report including:
+    - Current market conditions assessment
+    - Technical analysis summary with specific indicators
+    - Identified support and resistance levels
+    - Specific entry and exit recommendations
+    - Risk assessment and market outlook
+  agent: researcher_agent
+
+trading_strategy_task:
+  description: |
+    Based on the market analysis, develop a comprehensive trading strategy for BTC/USDT.
+    Include:
+    1. Strategy overview and objectives
+    2. Entry rules and conditions
+    3. Exit rules with profit-taking and stop-loss levels
+    4. Position sizing and risk management
+    5. Trade management approach
+  expected_output: |
+    Complete trading strategy document containing:
+    - Strategy parameters and rules
+    - Position sizing calculations
+    - Entry/exit conditions with specific prices
+    - Risk management framework
+    - Example trades
+    - Expected performance metrics
+  agent: trader_agent
+  depends_on:
+    - market_research_task
+
+code_generation_task:
+  description: |
+    Convert the trading strategy into production-ready Python code.
+    Create:
+    1. Market data fetcher module
+    2. Strategy logic implementation
+    3. Order execution module
+    4. Risk management module
+    5. Monitoring and logging system
+    6. Configuration management
+  expected_output: |
+    Production-ready trading bot code including:
+    - Main bot script
+    - Strategy implementation
+    - Configuration file template
+    - Requirements.txt with dependencies
+    - Comprehensive documentation
+    - Example usage and setup instructions
+    - Unit tests
+  agent: developer_agent
+  depends_on:
+    - trading_strategy_task
