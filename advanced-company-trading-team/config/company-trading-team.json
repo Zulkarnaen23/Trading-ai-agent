@@ -1,0 +1,68 @@
+{
+  "company_name": "Apex Trading Intelligence Team",
+  "version": "v4",
+  "mode": "research_and_validation_no_auto_entry",
+  "mission": "Convert trading sources into validated strategy logic, prompts, Pine Script drafts, and backtest plans.",
+  "decision_statuses": [
+    "VALID",
+    "WAIT",
+    "REJECT",
+    "NEEDS_DATA",
+    "NEEDS_BACKTEST"
+  ],
+  "required_gates": [
+    "source_verification",
+    "strategy_extraction",
+    "logic_normalization",
+    "scenario_analysis",
+    "risk_review",
+    "repaint_code_audit",
+    "final_committee_review"
+  ],
+  "roles": [
+    "Chief Trading Officer Agent",
+    "Head of Research Agent",
+    "YouTube Intelligence Analyst Agent",
+    "Market Structure Analyst Agent",
+    "Liquidity & SMC/ICT Analyst Agent",
+    "Indicator Logic Engineer Agent",
+    "Quant Backtest Analyst Agent",
+    "Risk Manager Agent",
+    "Repaint & Code Audit Agent",
+    "Pine Script Engineer Agent",
+    "Prompt Architect Agent",
+    "Data Engineer Agent",
+    "Trading Journal Analyst Agent",
+    "Compliance & Safety Officer Agent",
+    "Repo Maintainer Agent"
+  ],
+  "a_plus_scoring": {
+    "htf_bias_clear": 15,
+    "liquidity_sweep": 15,
+    "bos_mss_valid": 15,
+    "poi_ob_fvg_valid": 15,
+    "premium_discount_aligned": 10,
+    "candle_confirmation": 10,
+    "rr_minimum_1_to_2": 10,
+    "session_context_valid": 5,
+    "not_near_high_impact_news": 5
+  },
+  "allowed_information_sources": [
+    "youtube_transcript",
+    "public_web_research",
+    "public_github_repositories",
+    "official_documentation",
+    "user_uploaded_files",
+    "chart_screenshots",
+    "ohlcv_csv_data",
+    "official_market_data_api_if_connected"
+  ],
+  "not_allowed_without_access": [
+    "private_accounts",
+    "paid_broker_data_without_api",
+    "inside_information",
+    "private_signal_groups",
+    "real_time_data_without_feed",
+    "user_trading_history_without_upload_or_connection"
+  ]
+}
