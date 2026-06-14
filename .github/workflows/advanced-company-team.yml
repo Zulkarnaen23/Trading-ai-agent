@@ -1,0 +1,27 @@
+name: Advanced Company Trading Team Validation
+
+on:
+  push:
+    paths:
+      - 'advanced-company-trading-team/**'
+      - '.github/workflows/advanced-company-team.yml'
+  pull_request:
+    paths:
+      - 'advanced-company-trading-team/**'
+      - '.github/workflows/advanced-company-team.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-company-team:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Advanced Company Trading Team files
+        run: python advanced-company-trading-team/scripts/validate_company_team.py
