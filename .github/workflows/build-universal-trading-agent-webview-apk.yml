@@ -1,0 +1,38 @@
+name: Build Universal Trading Agent WebView APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'universal-trading-agent-v6/android-webview/**'
+      - '.github/workflows/build-universal-trading-agent-webview-apk.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Generate Gradle wrapper
+        working-directory: universal-trading-agent-v6/android-webview
+        run: gradle wrapper
+
+      - name: Build debug APK
+        working-directory: universal-trading-agent-v6/android-webview
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: universal-trading-agent-webview-debug-apk
+          path: universal-trading-agent-v6/android-webview/app/build/outputs/apk/debug/*.apk
