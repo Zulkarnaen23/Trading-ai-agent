@@ -1,0 +1,36 @@
+name: Universal Trading Agent Web Validation
+
+on:
+  push:
+    paths:
+      - 'universal-trading-agent-v6/web-app/**'
+      - 'universal-trading-agent-v6/backend-proxy/**'
+      - '.github/workflows/universal-trading-agent-web-validation.yml'
+  pull_request:
+    paths:
+      - 'universal-trading-agent-v6/web-app/**'
+      - 'universal-trading-agent-v6/backend-proxy/**'
+      - '.github/workflows/universal-trading-agent-web-validation.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate PWA files
+        run: |
+          test -f universal-trading-agent-v6/web-app/index.html
+          test -f universal-trading-agent-v6/web-app/manifest.webmanifest
+          test -f universal-trading-agent-v6/web-app/service-worker.js
+          test -f universal-trading-agent-v6/web-app/src/app.js
+          test -f universal-trading-agent-v6/backend-proxy/server.js
+          test -f universal-trading-agent-v6/backend-proxy/package.json
+
+      - name: Check frontend does not contain OpenAI keys
+        run: |
+          if grep -R "sk-proj-" universal-trading-agent-v6/web-app universal-trading-agent-v6/android-webview; then
+            echo "Secret-like OpenAI key found in frontend files"
+            exit 1
+          fi
