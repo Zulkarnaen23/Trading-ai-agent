@@ -1,0 +1,19 @@
+{
+  "name": "Universal Trading Agent",
+  "short_name": "Trading Agent",
+  "description": "AI trading research agent: YouTube, strategy logic, Pine Script, risk review, and backtest plan.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
