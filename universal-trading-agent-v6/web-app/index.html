@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Universal Trading Agent</title>
+  <meta name="theme-color" content="#0F172A">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="icon" href="./icons/icon.svg">
+</head>
+<body>
+  <main class="app">
+    <section class="card hero">
+      <div class="brand">
+        <img src="./icons/icon.svg" class="logo" alt="UTA">
+        <div>
+          <h1>Universal Trading Agent</h1>
+          <p>Apex Trading Intelligence Team • PWA + WebView + Desktop Install</p>
+        </div>
+      </div>
+      <div class="pills">
+        <span>Research</span><span>Logic</span><span>Risk</span><span>Pine Script</span><span>Backtest Plan</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <label for="taskInput">Input sumber strategi</label>
+        <textarea id="taskInput" placeholder="Tempel link YouTube, transkrip, Pine Script, atau catatan strategi..."></textarea>
+        <div class="controls">
+          <select id="modeSelect">
+            <option value="advanced_company_trading_team">Advanced Company Trading Team</option>
+            <option value="youtube_strategy_extraction">YouTube Strategy Extraction</option>
+            <option value="pine_script_audit">Pine Script Audit</option>
+            <option value="prompt_generator">Prompt Generator</option>
+            <option value="backtest_plan">Backtest Plan</option>
+          </select>
+          <button id="runButton">Analisis Dengan Agent</button>
+        </div>
+        <p class="note">Status akhir: VALID, WAIT, REJECT, NEEDS_DATA, NEEDS_BACKTEST.</p>
+      </div>
+
+      <div class="card">
+        <div class="output-head">
+          <h2>Output Agent</h2>
+          <button id="copyButton" class="ghost">Copy</button>
+        </div>
+        <pre id="outputBox">Output agent akan muncul di sini.</pre>
+      </div>
+    </section>
+
+    <section class="card install">
+      <h2>Install Aplikasi</h2>
+      <p>Buka di Chrome/Edge, lalu klik Install/Add to Home Screen. Untuk Android APK, gunakan folder android-webview.</p>
+      <button id="installButton" hidden>Install App</button>
+    </section>
+  </main>
+  <script src="./src/agent-config.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+</html>
